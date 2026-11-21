@@ -1,4 +1,4 @@
-const { carBrands, carModels, carColors } = require("../constants");
+const { carBrands, carModels } = require("../constants");
 const { createError } = require("../utils");
 
 function carsValidator(body) {
@@ -12,7 +12,7 @@ function carsValidator(body) {
   if (!brand) {
     errors.brand = "brand is required";
   } else {
-    if (!carBrands.includes(brand)) {
+    if (!carBrands.includes(String(brand).toLowerCase())) {
       errors.brand = "brand is not supported";
     }
   }
@@ -20,7 +20,7 @@ function carsValidator(body) {
   if (!model) {
     errors.model = "model is required";
   } else {
-    if (!carModels[brand].includes(model)) {
+    if (!carModels[brand].includes(String(model).toLowerCase())) {
       errors.model = "model is not supported";
     }
   }
@@ -37,12 +37,12 @@ function carsValidator(body) {
     errors.color = "color is required";
   } else {
     const colorCodeRegex = /^#(?:[0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/;
-    if (!colorCodeRegex.test(color)) {
+    if (!colorCodeRegex.test(String(color).toLowerCase())) {
       errors.color = "color is incorrect format";
     }
   }
 
-  if (Object.keys(errors) !== 0) {
+  if (Object.keys(errors).length !== 0) {
     return createError(400, "Bad request", errors);
   }
 

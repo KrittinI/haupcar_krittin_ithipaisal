@@ -11,7 +11,7 @@ function setUpPatchCars() {
 
       const data = body; // build and vaidate body
 
-      const result = await carsService.updateCar(carId, data);
+      await carsService.updateCar(carId, data);
 
       return res.status(201).json({ message: "Update car success" });
     } catch (error) {

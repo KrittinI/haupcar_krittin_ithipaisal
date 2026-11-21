@@ -13,7 +13,6 @@ function setUpPostCars() {
 
       return res.status(201).json({ message: "Create car success" });
     } catch (error) {
-      console.log(error);
       return next(error);
     }
   };

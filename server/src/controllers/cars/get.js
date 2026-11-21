@@ -12,8 +12,6 @@ function setUpGetCars() {
 
       const cars = await carsService.getAllCars(filter);
 
-      // createError(400, "topicId does not exist");
-
       return res.status(200).json({ cars });
     } catch (error) {
       return next(error);

@@ -9,7 +9,7 @@ function setUpDeleteCars() {
     try {
       const { carId } = req.params;
 
-      const cars = await carsService.deleteCar(carId);
+      await carsService.deleteCar(carId);
 
       return res.status(204).json({ message: "Delete car successful." });
     } catch (error) {
