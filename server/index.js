@@ -2,8 +2,8 @@ require("dotenv").config({ path: "../.env" });
 const express = require("express");
 const cors = require("cors");
 
+const { setUpCarRoutes } = require("./src/controllers");
 const { notFoundMiddleware, errorMiddleware } = require("./src/middlewares");
-const { setUpCarRoutes } = require("./src/controllers/cars");
 
 const app = express();
 const port = process.env.SERVER_PORT;

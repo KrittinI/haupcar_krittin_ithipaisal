@@ -1,5 +1,5 @@
 const { setUpCarsService } = require("../../services");
-const { updateCarsValidator } = require("../../validators/cars-validator");
+const { carsValidator } = require("../../validators");
 
 function setUpPutCars() {
   const carsService = setUpCarsService();
@@ -9,7 +9,7 @@ function setUpPutCars() {
     try {
       const { carId } = req.params;
 
-      const data = updateCarsValidator(req.body); // build and vaidate body
+      const data = carsValidator(req.body); // build and vaidate body
 
       const result = await carsService.updateCar(carId, data);
 

@@ -1,5 +1,6 @@
 const { setUpCarsService } = require("../../services");
 const { createError } = require("../../utils");
+const { filterCarsValidator } = require("../../validators");
 
 function setUpGetCars() {
   const carsService = setUpCarsService();
@@ -7,9 +8,7 @@ function setUpGetCars() {
 
   getCarsRoute.getAllCars = async (req, res, next) => {
     try {
-      const query = req.query;
-
-      const filter = query; // build and validate filter
+      const filter = filterCarsValidator(req.query); // build and validate filter
 
       const cars = await carsService.getAllCars(filter);
 

@@ -1,1 +1,5 @@
-export * from "./cars";
+const { setUpCarRoutes } = require("./cars");
+
+module.exports = {
+  setUpCarRoutes,
+};

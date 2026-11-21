@@ -5,7 +5,10 @@ function setUpCarsService() {
 
   carsService.getCarById = async (carId) => {};
 
-  carsService.createCar = async (body) => {};
+  carsService.createCar = async (body) => {
+    console.log(body);
+    return body;
+  };
 
   carsService.updateCar = async (carId, body) => {};
 
