@@ -2,14 +2,14 @@ const { Router } = require("express");
 const { setUpGetModels } = require("./get");
 
 function setUpModelRoutes() {
-  const carRouter = Router();
+  const modelRouter = Router();
 
   const getRoute = setUpGetModels();
 
-  carRouter.get("/", getRoute.getAllModels);
-  carRouter.get("/:brand", getRoute.getModelByBrand);
+  modelRouter.get("/", getRoute.getAllModels);
+  modelRouter.get("/:brand", getRoute.getModelByBrand);
 
-  return carRouter;
+  return modelRouter;
 }
 
 module.exports = {
