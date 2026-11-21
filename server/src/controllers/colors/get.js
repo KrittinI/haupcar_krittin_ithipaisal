@@ -8,8 +8,8 @@ function setUpGetColors() {
     try {
       const colors = [];
 
-      for (const color of carColors) {
-        color.push({ color, colorCode: carColors[color] });
+      for (const color in carColors) {
+        colors.push({ color, colorCode: carColors[color] });
       }
 
       return res.status(200).json({ colors });
