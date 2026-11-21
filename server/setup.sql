@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS cars;
+
+CREATE TABLE cars (
+    id SERIAL PRIMARY KEY,
+    plate_no VARCHAR(100) NOT NULL,
+    brand VARCHAR(100) NOT NULL,
+    model VARCHAR(100) NOT NULL,
+    chassis_no VARCHAR(100) NOT NULL,
+    color VARCHAR(100) NOT NULL,
+    note TEXT DEFAULT NULL,
+    created_at TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP(3) DEFAULT NULL
+);
+
+CREATE UNIQUE INDEX idx_cars_chassis_no_active 
+ON cars (chassis_no) 
+WHERE deleted_at IS NULL;
