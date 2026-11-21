@@ -2,7 +2,11 @@ require("dotenv").config({ path: "../.env" });
 const express = require("express");
 const cors = require("cors");
 
-const { setUpCarRoutes } = require("./src/controllers");
+const {
+  setUpCarRoutes,
+  setUpModelRoutes,
+  setUpColorRoutes,
+} = require("./src/controllers");
 const { notFoundMiddleware, errorMiddleware } = require("./src/middlewares");
 
 const app = express();
@@ -13,6 +17,9 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ limit: "1mb", extended: false }));
 
 app.use("/cars", setUpCarRoutes());
+app.use("/models", setUpModelRoutes());
+app.use("/brands", setUpModelRoutes());
+app.use("/colors", setUpColorRoutes());
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
