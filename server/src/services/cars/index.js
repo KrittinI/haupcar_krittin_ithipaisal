@@ -41,7 +41,7 @@ function setUpCarsService() {
       if (!car) {
         createError(404, `carId: ${carId} not found.`);
       }
-      const { brand, model, plate_no, color, chassis_no } = body;
+      const { brand, model, plate_no, color, chassis_no, note } = body;
       const updateData = {};
 
       if (chassis_no !== car.chassis_no) {
@@ -68,6 +68,10 @@ function setUpCarsService() {
 
       if (color !== car.color) {
         updateData.color = color;
+      }
+
+      if (note !== car.note) {
+        updateData.note = note;
       }
 
       if (Object.keys(updateData).length === 0) {
