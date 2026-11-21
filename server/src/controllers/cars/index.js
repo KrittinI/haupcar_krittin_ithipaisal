@@ -17,7 +17,7 @@ function setUpCarRoutes() {
   carRouter.get("/", getRoute.getAllCars);
   carRouter.get("/:carId", getRoute.getCarsById);
   carRouter.post("/", postRoute.createCar);
-  carRouter.patch("/:carId", patchRoute.updateCar);
+  // carRouter.patch("/:carId", patchRoute.updateCar);
   carRouter.put("/:carId", putRoute.updateCar);
   carRouter.delete("/:carId", deleteRoute.deleteCarById);
 
