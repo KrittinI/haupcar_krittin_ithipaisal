@@ -6,6 +6,7 @@ const {
   setUpCarRoutes,
   setUpModelRoutes,
   setUpColorRoutes,
+  setUpBrandRoutes,
 } = require("./src/controllers");
 const { notFoundMiddleware, errorMiddleware } = require("./src/middlewares");
 
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ limit: "1mb", extended: false }));
 
 app.use("/cars", setUpCarRoutes());
 app.use("/models", setUpModelRoutes());
-app.use("/brands", setUpModelRoutes());
+app.use("/brands", setUpBrandRoutes());
 app.use("/colors", setUpColorRoutes());
 
 app.use(notFoundMiddleware);
