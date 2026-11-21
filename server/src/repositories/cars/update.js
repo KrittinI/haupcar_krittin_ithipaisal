@@ -2,7 +2,7 @@ const { postGres } = require("../../configs");
 
 async function updateCar(carId, body) {
   const updateFiled = [];
-  const values = [carId];
+  const values = [Number(carId)];
 
   for (const key in body) {
     values.push(body[key]);
@@ -13,7 +13,7 @@ async function updateCar(carId, body) {
 
   const query = `
     UPDATE cars
-        SET ${updateQuery} WHERE id = $1 AND deleted_at IS NOT NULL
+        SET ${updateQuery} WHERE id = $1 AND deleted_at IS NULL
   `;
 
   const result = await postGres.query(query, values);
