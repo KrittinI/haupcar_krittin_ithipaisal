@@ -7,9 +7,11 @@ function setUpGetCars() {
 
   getCarsRoute.getAllCars = async (req, res, next) => {
     try {
-      const { q } = req.query;
+      const query = req.query;
 
-      const cars = await carsService.getAllCars();
+      const filter = query; // build and validate filter
+
+      const cars = await carsService.getAllCars(filter);
 
       // createError(400, "topicId does not exist");
 

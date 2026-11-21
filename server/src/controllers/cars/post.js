@@ -1,4 +1,5 @@
 const { setUpCarsService } = require("../../services");
+const { createCarsValidator } = require("../../validators/cars-validator");
 
 function setUpPostCars() {
   const carsService = setUpCarsService();
@@ -6,9 +7,9 @@ function setUpPostCars() {
 
   createCarsRoute.createCar = async (req, res, next) => {
     try {
-      const body = req.body;
+      const data = createCarsValidator(req.body); // build and vaidate body
 
-      const result = await carsService.createCar(body);
+      const result = await carsService.createCar(data);
 
       return res.status(201).json({ message: "Create car success" });
     } catch (error) {

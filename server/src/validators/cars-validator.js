@@ -1,8 +1,14 @@
-function createCarsValidator(data) {}
+function createCarsValidator(body) {
+  return body;
+}
 
-function updateCarsValidator(data) {}
+function updateCarsValidator(body) {
+  return body;
+}
 
-function filterCarsValidator(filter) {}
+function filterCarsValidator(query) {
+  return query;
+}
 
 module.exports = {
   createCarsValidator,

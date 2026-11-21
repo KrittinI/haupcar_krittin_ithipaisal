@@ -9,9 +9,9 @@ function setUpPatchCars() {
       const { carId } = req.params;
       const body = req.body;
 
-      console.log({ carId });
+      const data = body; // build and vaidate body
 
-      const result = await carsService.updateCar(carId, body);
+      const result = await carsService.updateCar(carId, data);
 
       return res.status(201).json({ message: "Update car success" });
     } catch (error) {
