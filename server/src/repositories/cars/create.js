@@ -7,9 +7,10 @@ async function createCar(body) {
       color,
       chassis_no,
       model,
-      brand
+      brand,
+      note
     )
-    VALUES ($1, $2, $3, $4, $5)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *;
   `;
 
@@ -19,6 +20,7 @@ async function createCar(body) {
     body.chassis_no,
     body.model,
     body.brand,
+    body.note || "",
   ];
 
   const result = await postGres.query(query, values);
