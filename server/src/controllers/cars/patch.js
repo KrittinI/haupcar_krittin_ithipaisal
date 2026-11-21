@@ -1,4 +1,7 @@
-export function setUpPatchCars() {
+const { setUpCarsService } = require("../../services");
+
+function setUpPatchCars() {
+  const carsService = setUpCarsService();
   const updateCarsRoute = {};
 
   updateCarsRoute.updateCar = async (req, res, next) => {
@@ -6,9 +9,11 @@ export function setUpPatchCars() {
       const { carId } = req.params;
       const body = req.body;
 
+      console.log({ carId });
+
       const result = await carsService.updateCar(carId, body);
 
-      return res.status(201).json({ message: "Create car success" });
+      return res.status(201).json({ message: "Update car success" });
     } catch (error) {
       return next(error);
     }
@@ -16,3 +21,7 @@ export function setUpPatchCars() {
 
   return updateCarsRoute;
 }
+
+module.exports = {
+  setUpPatchCars,
+};

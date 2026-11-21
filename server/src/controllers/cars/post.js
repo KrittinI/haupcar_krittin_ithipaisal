@@ -1,6 +1,6 @@
-import { setUpCarsService } from "../../services/cars";
+const { setUpCarsService } = require("../../services");
 
-export function setUpPostCars() {
+function setUpPostCars() {
   const carsService = setUpCarsService();
   const createCarsRoute = {};
 
@@ -18,3 +18,7 @@ export function setUpPostCars() {
 
   return createCarsRoute;
 }
+
+module.exports = {
+  setUpPostCars,
+};

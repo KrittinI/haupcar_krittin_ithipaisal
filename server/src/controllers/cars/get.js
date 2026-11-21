@@ -1,6 +1,7 @@
-import { setUpCarsService } from "../../services/cars";
+const { setUpCarsService } = require("../../services");
+const { createError } = require("../../utils");
 
-export function setUpGetCars() {
+function setUpGetCars() {
   const carsService = setUpCarsService();
   const getCarsRoute = {};
 
@@ -9,6 +10,8 @@ export function setUpGetCars() {
       const { q } = req.query;
 
       const cars = await carsService.getAllCars();
+
+      // createError(400, "topicId does not exist");
 
       return res.status(200).json({ cars });
     } catch (error) {
@@ -29,3 +32,7 @@ export function setUpGetCars() {
 
   return getCarsRoute;
 }
+
+module.exports = {
+  setUpGetCars,
+};

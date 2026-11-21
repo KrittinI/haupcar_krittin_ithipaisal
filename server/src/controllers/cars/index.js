@@ -1,11 +1,11 @@
-import { Router } from "express";
-import { setUpDeleteCars } from "./delete";
-import { setUpGetCars } from "./get";
-import { setUpPatchCars } from "./patch";
-import { setUpPostCars } from "./post";
-import { setUpPutCars } from "./put";
+const { Router } = require("express");
+const { setUpDeleteCars } = require("./delete");
+const { setUpGetCars } = require("./get");
+const { setUpPatchCars } = require("./patch");
+const { setUpPostCars } = require("./post");
+const { setUpPutCars } = require("./put");
 
-export function setUpCarRoues() {
+function setUpCarRoutes() {
   const carRouter = Router();
 
   const getRoute = setUpGetCars();
@@ -23,3 +23,7 @@ export function setUpCarRoues() {
 
   return carRouter;
 }
+
+module.exports = {
+  setUpCarRoutes,
+};

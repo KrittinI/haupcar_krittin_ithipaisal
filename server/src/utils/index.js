@@ -1,1 +1,5 @@
-export * from "./create-error";
+const { createError } = require("./create-error");
+
+module.exports = {
+  createError,
+};

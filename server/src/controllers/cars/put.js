@@ -1,6 +1,6 @@
-import { setUpCarsService } from "../../services/cars";
+const { setUpCarsService } = require("../../services");
 
-export function setUpPutCars() {
+function setUpPutCars() {
   const carsService = setUpCarsService();
   const updateCarsRoute = {};
 
@@ -11,7 +11,7 @@ export function setUpPutCars() {
 
       const result = await carsService.updateCar(carId, body);
 
-      return res.status(201).json({ message: "Create car success" });
+      return res.status(201).json({ message: "Update car success" });
     } catch (error) {
       return next(error);
     }
@@ -19,3 +19,7 @@ export function setUpPutCars() {
 
   return updateCarsRoute;
 }
+
+module.exports = {
+  setUpPutCars,
+};
