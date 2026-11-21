@@ -5,11 +5,13 @@ import { useState } from 'react';
 type Props = {
     brands: string[];
     models: Record<string, string[]>;
+    brand?: string;
+    model?: string
 };
 
-export default function BrandModelSelect({ brands, models }: Props) {
-    const [brand, setBrand] = useState('');
-    const [model, setModel] = useState('');
+export default function BrandModelSelect({ brands, models, brand: carBrand = '', model: carModel = '' }: Props) {
+    const [brand, setBrand] = useState(carBrand);
+    const [model, setModel] = useState(carModel);
 
 
     const availableModels = models[brand] ?? [];

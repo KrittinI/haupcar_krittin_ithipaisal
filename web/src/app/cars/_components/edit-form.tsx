@@ -21,7 +21,7 @@ export default async function EditForm({ carId }: { carId: string }) {
             <input type="hidden" name="id" value={car.id} />
 
             <div className="rounded-md bg-gray-50 p-6">
-                <BrandModelSelect brands={brands} models={models} />
+                <BrandModelSelect brands={brands} models={models} model={car.model} brand={car.brand} />
 
                 <div className="mb-4">
                     <label htmlFor="color" className="mb-2 block text-sm font-medium">
@@ -32,7 +32,7 @@ export default async function EditForm({ carId }: { carId: string }) {
                             id="color"
                             name="color"
                             className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
-                            defaultValue=""
+                            defaultValue={colors.find(({ color, colorCode }: { color: string, colorCode: string }) => colorCode === car.color).color}
                         >
                             <option value="" disabled>
                                 Select a color
@@ -55,6 +55,7 @@ export default async function EditForm({ carId }: { carId: string }) {
                             id="plate_no"
                             name="plate_no"
                             placeholder="Enter plate no"
+                            defaultValue={car.plate_no}
                             className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                         />
                     </div>
@@ -68,6 +69,7 @@ export default async function EditForm({ carId }: { carId: string }) {
                         <input
                             id="chassis_no"
                             name="chassis_no"
+                            defaultValue={car.chassis_no}
                             placeholder="Enter chassis no"
                             className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                         />
@@ -88,6 +90,7 @@ export default async function EditForm({ carId }: { carId: string }) {
                             id="note"
                             name="note"
                             placeholder="Add note"
+                            defaultValue={car.note}
                             className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                         />
                     </div>
