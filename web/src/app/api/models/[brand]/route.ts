@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: RouteContext<"/api/models/[brand]">
+  { params }: { params: Promise<{ brand: string }> }
 ) {
   try {
     const { brand } = await params;
