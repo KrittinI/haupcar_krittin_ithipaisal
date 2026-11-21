@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: PageProps<"/cars/[carId]">
+  { params }: RouteContext<"/api/cars/[carId]">
 ) {
   try {
     const { carId } = await params;
