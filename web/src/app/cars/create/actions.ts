@@ -10,8 +10,6 @@ export async function createCar(formData: FormData) {
   const chassisNo = formData.get("chassis_no");
   const note = formData.get("note");
 
-  console.log(brand, model, color, plateNo, chassisNo, note);
-
   // ส่งข้อมูลไป NestJS API
   const res = await fetch(`${process.env.API_URL}/api/cars`, {
     method: "POST",
@@ -29,7 +27,6 @@ export async function createCar(formData: FormData) {
   });
 
   if (!res.ok) {
-    const error = await res.json();
     throw new Error("Failed to create car");
   }
 
