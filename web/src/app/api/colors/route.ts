@@ -18,10 +18,6 @@ export async function GET() {
 
     return NextResponse.json({ colors });
   } catch (error) {
-    console.error("Database Error:", error);
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error }, { status: 500 });
   }
 }

@@ -12,18 +12,18 @@ export async function GET(request: NextRequest) {
     const res = await fetch(`${apiUrl}/cars?${searchParams.toString()}`);
 
     if (!res.ok) {
-      return NextResponse.json({ message: "" }, { status: res.status });
+      const error = await res.json();
+      return NextResponse.json(
+        { message: error.message },
+        { status: res.status }
+      );
     }
 
     const data = await res.json();
 
     return NextResponse.json({ cars: data.cars, total: data.cars.length });
   } catch (error) {
-    console.error("Database Error:", error);
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error }, { status: 500 });
   }
 }
 
@@ -58,10 +58,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ message });
   } catch (error) {
-    console.error("Database Error:", error);
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error }, { status: 500 });
   }
 }
