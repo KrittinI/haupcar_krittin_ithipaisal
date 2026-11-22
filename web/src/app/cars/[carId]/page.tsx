@@ -8,6 +8,8 @@ export default async function CarDetailPage({ params }: PageProps<'/cars/[carId]
     const data = await res.json()
 
     return (
-        <div>{carId}{JSON.stringify(data.car)}<Link href={`/cars/${carId}/edit`}>Edit</Link></div>
+        <div>{carId}{JSON.stringify(data.car)}<Link
+            className="btn btn-primary"
+            href={`/cars/${carId}/edit`}>Edit</Link></div>
     )
 }

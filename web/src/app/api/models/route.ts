@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    console.log("hello");
     const apiUrl = process.env.BACKEND_URL;
 
     if (!apiUrl) {
@@ -19,10 +18,6 @@ export async function GET() {
 
     return NextResponse.json({ models });
   } catch (error) {
-    console.error("Database Error:", error);
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error }, { status: 500 });
   }
 }

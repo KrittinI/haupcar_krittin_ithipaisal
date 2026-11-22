@@ -15,17 +15,17 @@ export async function GET(
     const res = await fetch(`${apiUrl}/cars/${carId}`);
 
     if (!res.ok) {
-      return NextResponse.json({ message: "" }, { status: res.status });
+      const error = await res.json();
+      return NextResponse.json(
+        { message: error.message },
+        { status: res.status }
+      );
     }
     const data = await res.json();
 
     return NextResponse.json({ car: data.car });
   } catch (error) {
-    console.error("Database Error:", error);
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error }, { status: 500 });
   }
 }
 
@@ -64,10 +64,6 @@ export async function PUT(
 
     return NextResponse.json({ message });
   } catch (error) {
-    console.error("Database Error:", error);
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error }, { status: 500 });
   }
 }
