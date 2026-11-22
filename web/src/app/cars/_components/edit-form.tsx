@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { updateCar } from "../[carId]/edit/actions";
 import BrandModelSelect from "./brand-model";
+import { notFound } from "next/navigation";
 
 export default async function EditForm({ carId }: { carId: string }) {
     const [carRes, brandRes, modelRes, colorRes] = await Promise.all([
@@ -16,6 +17,14 @@ export default async function EditForm({ carId }: { carId: string }) {
         modelRes.json(),
         colorRes.json(),
     ]);
+
+    if (!carRes.ok) {
+        notFound()
+    }
+
+    if (!car) {
+        notFound()
+    }
     return (
         <form action={updateCar}>
             <input type="hidden" name="id" value={car.id} />
@@ -32,7 +41,7 @@ export default async function EditForm({ carId }: { carId: string }) {
                             id="color"
                             name="color"
                             className=""
-                            defaultValue={colors.find(({ color, colorCode }: { color: string, colorCode: string }) => colorCode === car.color).color}
+                            defaultValue={colors.find(({ color, colorCode }: { color: string, colorCode: string }) => colorCode === car.color)?.color || ''}
                         >
                             <option value="" disabled>
                                 Select a color

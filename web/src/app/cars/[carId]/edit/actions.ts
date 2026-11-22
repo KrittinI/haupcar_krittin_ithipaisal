@@ -28,16 +28,10 @@ export async function updateCar(formData: FormData) {
     }),
   });
 
-  console.log(res);
-
   if (!res.ok) {
     const error = await res.json();
-    throw new Error("Failed to udpate car");
+    throw new Error("Failed to delte car");
   }
-
-  const a = await res.json();
-
-  console.log({ a });
 
   redirect(`/cars/${carId}`);
 }
