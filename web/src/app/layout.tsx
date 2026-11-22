@@ -1,7 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "./cars/_components/nav-bar";
 import "./globals.css";
-import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
 
       <body className="min-h-full flex flex-col">
-        <Link href={"/"}>Home</Link>{children}</body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

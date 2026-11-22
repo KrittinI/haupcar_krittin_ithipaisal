@@ -99,14 +99,12 @@ export default async function EditForm({ carId }: { carId: string }) {
             <div className="">
                 <Link
                     href={`/cars/${carId}`}
-                    className=""
+                    className="btn btn-light"
                 >
                     Cancel
                 </Link>
 
-                <button className="">
-                    Update
-                </button>
+                <button type="submit" className="btn btn-primary">Update</button>
             </div>
         </form>
     )

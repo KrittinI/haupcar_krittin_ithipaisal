@@ -93,14 +93,12 @@ export default async function CreateForm() {
             <div className="">
                 <Link
                     href="/"
-                    className=""
+                    className="btn btn-light"
                 >
                     Cancel
                 </Link>
 
-                <button className="">
-                    Create
-                </button>
+                <button type="submit" className="btn btn-primary">Create</button>
             </div>
         </form>
     )
