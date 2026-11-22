@@ -17,18 +17,18 @@ export default async function CreateForm() {
 
     return (
         <form action={createCar}>
-            <div className="rounded-md bg-gray-50 p-6">
+            <div className="">
                 <BrandModelSelect brands={brands} models={models} />
 
-                <div className="mb-4">
-                    <label htmlFor="color" className="mb-2 block text-sm font-medium">
+                <div className="">
+                    <label htmlFor="color" className="">
                         color
                     </label>
-                    <div className="relative">
+                    <div className="">
                         <select
                             id="color"
                             name="color"
-                            className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                            className=""
                             defaultValue=""
                         >
                             <option value="" disabled>
@@ -43,62 +43,62 @@ export default async function CreateForm() {
                     </div>
                 </div>
 
-                <div className="mb-4">
-                    <label htmlFor="plate_no" className="mb-2 block text-sm font-medium">
+                <div className="">
+                    <label htmlFor="plate_no" className="">
                         Plate No.
                     </label>
-                    <div className="relative mt-2 rounded-md">
+                    <div className="">
                         <input
                             id="plate_no"
                             name="plate_no"
                             placeholder="Enter plate no"
-                            className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                            className=""
                         />
                     </div>
                 </div>
 
-                <div className="mb-4">
-                    <label htmlFor="chassis_no" className="mb-2 block text-sm font-medium">
+                <div className="">
+                    <label htmlFor="chassis_no" className="">
                         Chassis No.
                     </label>
-                    <div className="relative mt-2 rounded-md">
+                    <div className="">
                         <input
                             id="chassis_no"
                             name="chassis_no"
                             placeholder="Enter chassis no"
-                            className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                            className=""
                         />
                     </div>
                 </div>
 
 
                 {/* Description */}
-                <div className="mb-4">
+                <div className="">
                     <label
                         htmlFor="note"
-                        className="mb-2 block text-sm font-medium"
+                        className=""
                     >
                         Note
                     </label>
-                    <div className="relative mt-2 rounded-md">
+                    <div className="">
                         <textarea
                             id="note"
                             name="note"
                             placeholder="Add note"
-                            className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                            className=""
                         />
                     </div>
                 </div>
             </div>
-            <div className="mt-6 flex justify-end gap-4">
+            <div className="">
                 <Link
                     href="/"
-                    className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
+                    className=""
                 >
                     Cancel
                 </Link>
 
-                <button className="flex h-10 items-center rounded-lg bg-red-500 px-4 text-sm font-medium text-white transition-colors hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50">
+                <button className="">
                     Create
                 </button>
             </div>
